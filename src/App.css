@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+/* Login  */
+
+.input{
+  height: 36px;
+  width: 20%;
+  margin-top: 12px;
+}
+
+.login-btn {
+    color: rgb(255, 255, 255);
+    background-color: rgb(63, 81, 181);
+    padding: 10px 20px;
+    border-width: 0px;
+}
