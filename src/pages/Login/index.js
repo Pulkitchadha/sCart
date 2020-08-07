@@ -1,8 +1,11 @@
 import React from 'react';
+import { connect } from "react-redux";
+import { login } from "store/auth/actions";
+
 import api from 'services/api';
 import { showMessage } from 'services/utility';
 
-export default class Login extends React.Component {
+class Login extends React.Component {
     state = {
         username: '',
         password: '',
@@ -23,8 +26,7 @@ export default class Login extends React.Component {
 
             const result = await api.get('users', { username, password });
 
-            if (result?.length && result[0]?.password !== password) throw new Error('Invalid Password');
-
+            this.props.login({ user: result?.length ? result[0] : null });
             this.props.history.push('/products');
         } catch (err) {
             showMessage('error', err.message);
@@ -56,3 +58,7 @@ export default class Login extends React.Component {
         )
     }
 }
+
+const mapDispatch = { login };
+
+export default connect(null, mapDispatch)(Login);
