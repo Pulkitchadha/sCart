@@ -6,7 +6,7 @@ function createAxios() {
 
     axios.defaults.baseURL = `${process.env.REACT_APP_API_URL}/`;
     axios.defaults.headers.common["Content-Type"] = "application/json";
-    axios.defaults.timeout = 120000; // 2*60*1000 = 120000 = 2 minutes
+    axios.defaults.timeout = 2*60*1000; // 2 minutes
 
     axios.interceptors.response.use(
         (response) => response?.data,
