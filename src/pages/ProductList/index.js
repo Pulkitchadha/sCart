@@ -1,11 +1,18 @@
-import React, { Component } from 'react';
+import { getProducts } from 'store/products/actions';
+import { getFilters } from 'store/filters/actions';
+import { connect } from 'react-redux';
 
-export default class ProductList extends Component {
-    render() {
-        return (
-            <div className="App">
-                <h1>Product List Page</h1>
-            </div>
-        )
-    }
+import ProductList from './ProductList';
+
+const mapStore = ({ products }) => ({
+    products: products.products,
+    loading: products.loading
+})
+
+const mapDispatch = {
+    getProducts,
+    getFilters,
+    // applyFilters
 }
+
+export default connect(mapStore, mapDispatch)(ProductList);
