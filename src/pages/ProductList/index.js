@@ -1,18 +1,24 @@
-import { getProducts } from 'store/products/actions';
+import { getProducts, searchProducts } from 'store/products/actions';
 import { getFilters } from 'store/filters/actions';
+import { addProduct, removeProduct } from 'store/cart/actions';
 import { connect } from 'react-redux';
 
 import ProductList from './ProductList';
 
-const mapStore = ({ products }) => ({
+const mapStore = ({ products, filters, user, cart }) => ({
     products: products.products,
+    filters: filters.filters,
+    user: user,
+    cartProducts: cart.products,
     loading: products.loading
 })
 
 const mapDispatch = {
     getProducts,
     getFilters,
-    // applyFilters
+    searchProducts,
+    addProduct,
+    removeProduct
 }
 
 export default connect(mapStore, mapDispatch)(ProductList);

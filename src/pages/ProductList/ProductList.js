@@ -48,7 +48,7 @@ export default class ProductList extends Component {
                             </div>
                         </div>
                     </div>
-                    <Footer />
+                    {/* <Footer /> */}
                 </div>
             </div>
         )

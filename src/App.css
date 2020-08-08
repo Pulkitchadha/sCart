@@ -52,3 +52,19 @@
   padding: 10px 20px;
   border-width: 0px;
 }
+
+/* Product list */
+
+.input-search {
+  height: 50px;
+  width: 70%;
+  margin: 20px 9%;
+}
+
+
+/* footer {
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:60px;
+} */

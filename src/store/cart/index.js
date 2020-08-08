@@ -18,7 +18,7 @@ export default function (state = INITIAL_STATE, { type, payload }) {
         case REMOVE_PRODUCT: {
             return {
                 ...state,
-                prouducts: state.proucts.filter(p => p.i === payload)
+                products: state.products.filter(p => p.id !== payload)
             };
         }
         default:
