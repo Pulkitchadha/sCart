@@ -58,7 +58,8 @@
 .input-search {
   height: 50px;
   width: 70%;
-  margin: 20px 9%;
+  margin: 20px;
+  margin-left: 100px;
 }
 
 

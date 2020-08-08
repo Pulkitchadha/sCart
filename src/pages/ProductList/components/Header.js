@@ -29,7 +29,7 @@ class Header extends React.Component {
                     </div>
                     <div className="collapse navbar-collapse" id="myNavbar">
                         <input
-                            className="input-search"
+                            className="input-search text-center"
                             name="text"
                             type="text"
                             placeholder="Search Products"

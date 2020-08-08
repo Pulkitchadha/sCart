@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 
 function Footer(props) {
     return (
-        <footer className="container-fluid">
-            <h1 className="text-center">Footer</h1>
+        <footer className="container-fluid mt-5">
+            <hr />
+            <h4 className="text-center">@abc.com</h4>
         </footer>
     )
 }
