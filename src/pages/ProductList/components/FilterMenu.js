@@ -7,8 +7,8 @@ import Select from 'components/Select';
 const initalState = {
     color: [],
     brand: [],
-    price: { min: 0, max: Infinity },
-    discount: { min: 0, max: Infinity },
+    price: { min: null, max: null },
+    discount: { min: null, max: null },
 }
 
 class FilterMenu extends React.Component {
@@ -22,9 +22,10 @@ class FilterMenu extends React.Component {
         { name: '80 %', value: 80 }, { name: '85 %', value: 85 }, { name: '90 %', value: 90 }, { name: '95 %', value: 95 }, { name: '100 %', value: 100 },
     ]
 
-    handleChange = (e, category, name) => {
+    handleChange = (e, category, name, stateKey) => {
         let tagName = '';
         let isChecked = false;
+        const value = e?.target?.value;
 
         if (name) {
             tagName = name.toLowerCase();
@@ -34,12 +35,11 @@ class FilterMenu extends React.Component {
             isChecked = e.target.checked;
         }
         this.setState(prevState => {
-            if (isChecked) {
-                if (['price', 'discount'].includes(category)) {
-                    return {
-                        [category]: [tagName]
-                    }
+            if (['price', 'discount'].includes(category)) {
+                return {
+                    [category]: { ...prevState[category], ...{ [stateKey]: !isNaN(value) ? parseInt(value) : null } }
                 }
+            } else if (isChecked) {
                 return {
                     [category]: [...prevState[category] || [], tagName]
                 };
@@ -54,7 +54,7 @@ class FilterMenu extends React.Component {
     handleCloseTag = (category, name) => {
         this.setState(prevState => {
             return {
-                [category]:  prevState[category].filter(n => n !== name)
+                [category]: prevState[category].filter(n => n !== name)
             }
         }, () => this.props.applyFilter(this.state));
     }
@@ -123,6 +123,7 @@ class FilterMenu extends React.Component {
                                             category='price'
                                             namekey="displayValue"
                                             valuekey="key"
+                                            stateKey="min"
                                             selectedValue={this.state.price?.min}
                                         />
                                     </div>
@@ -133,6 +134,7 @@ class FilterMenu extends React.Component {
                                             category='price'
                                             namekey="displayValue"
                                             valuekey="key"
+                                            stateKey="max"
                                             selectedValue={this.state.price?.max}
                                         />
                                     </div>
@@ -148,6 +150,7 @@ class FilterMenu extends React.Component {
                                             onChange={this.handleChange}
                                             category='discount'
                                             defaultOption="Min"
+                                            stateKey="min"
                                             selectedValue={this.state.discount?.min}
                                         />
                                     </div>
@@ -157,6 +160,7 @@ class FilterMenu extends React.Component {
                                             onChange={this.handleChange}
                                             category='discount'
                                             defaultOption="Max"
+                                            stateKey="max"
                                             selectedValue={this.state.discount?.max}
                                         />
                                     </div>

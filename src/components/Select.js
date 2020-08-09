@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Select({ onChange, items = [], category, namekey = 'name', valuekey = 'value', defaultOption, selectedValue }) {
+function Select({ onChange, items = [], category, namekey = 'name', valuekey = 'value', stateKey = 'min', defaultOption, selectedValue }) {
     return (
         <div>
-            <select name={category} onChange={(e) => onChange(e, category)} >
+            <select name={category} onChange={(e) => onChange(e, category, null, stateKey)} >
                 {defaultOption && <option value="">{defaultOption}</option>}
                 {items.map(i => <option key={i[valuekey]} value={i[valuekey]} selected={selectedValue === i[valuekey]}>{i[namekey]}</option>)}
             </select>
@@ -11,4 +11,4 @@ function Select({ onChange, items = [], category, namekey = 'name', valuekey = '
     )
 }
 
-export default  React.memo(Select);
+export default React.memo(Select);

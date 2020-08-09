@@ -52,12 +52,13 @@ export const applyFilter = (filters) => async (dispatch, getState) => {
         if (brand?.length) {
             addToList = brand.includes(p?.brand?.toLowerCase());
         }
-        // if (Object.keys(price).length) {
-        //     addToList = p?.price?.final_price >= price?.min && p?.price?.final_price <= price?.max;
-        // }
-        // if (Object.keys(discount).length) {
-        //     addToList = p?.discount >= discount?.min && p?.discount <= discount?.max;
-        // }
+        if (price?.min || price?.max) {
+            addToList = p?.price?.final_price >= price?.min && p?.price?.final_price <= price?.max;
+        }
+        if (discount?.min || discount?.max) {
+            if(discount?.min) addToList = p?.discount >= discount?.min;
+            if(discount?.max) addToList = p?.discount <= discount?.max;
+        }
         return addToList;
     });
     console.log({ allProducts, filters, filteredProducts });
