@@ -44,22 +44,26 @@ export const applyFilter = (filters) => async (dispatch, getState) => {
     let filteredProducts = allProducts;
 
     filteredProducts = filteredProducts.filter(p => {
-        let addToList = true;
+        let isColorValid = true;
+        let isBrandValid = true;
+        let isPriceValid = true;
+        let isDiscount = true;
 
         if (color?.length) {
-            addToList = color.includes(p?.colour?.title?.toLowerCase());
+            isColorValid = color.includes(p?.colour?.title?.toLowerCase());
         }
         if (brand?.length) {
-            addToList = brand.includes(p?.brand?.toLowerCase());
+            isBrandValid = brand.includes(p?.brand?.toLowerCase());
         }
         if (price?.min || price?.max) {
-            addToList = p?.price?.final_price >= price?.min && p?.price?.final_price <= price?.max;
+            if (price?.min) isPriceValid = p?.price?.final_price >= price?.min;
+            if (price?.max) isPriceValid = p?.price?.final_price <= price?.max;
         }
         if (discount?.min || discount?.max) {
-            if(discount?.min) addToList = p?.discount >= discount?.min;
-            if(discount?.max) addToList = p?.discount <= discount?.max;
+            if (discount?.min) isDiscount = p?.discount >= discount?.min;
+            if (discount?.max) isDiscount = p?.discount <= discount?.max;
         }
-        return addToList;
+        return isColorValid && isBrandValid && isPriceValid && isDiscount;
     });
     console.log({ allProducts, filters, filteredProducts });
 
