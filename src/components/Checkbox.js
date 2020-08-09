@@ -1,4 +1,5 @@
 import React from 'react';
+import { truncateString } from 'services/utility'
 
 function Checkbox({ onChange, name, category, isChecked }) {
     console.log('checkbox rendered')
@@ -12,10 +13,10 @@ function Checkbox({ onChange, name, category, isChecked }) {
                 checked={isChecked}
             />
             <label htmlFor={name}>
-                {name}
+                {truncateString(name, 8)}
             </label>
         </>
     )
 }
 
-export default  React.memo(Checkbox);
+export default React.memo(Checkbox);
