@@ -11,11 +11,7 @@ function createAxios() {
     axios.interceptors.response.use(
         (response) => response?.data,
         (error) => {
-            //   if (error?.response?.status === 401) { // unauthorized call
-            //     return store.dispatch(logout());
-            //   }
             if (error?.response?.data) return Promise.reject(error.response.data);
-
             return Promise.reject(error);
         }
     );

@@ -21,6 +21,17 @@ export default class ProductList extends Component {
 
     render() {
         const { searchProducts, addProduct, removeProduct, applyFilter, ...restProps } = this.props;
+
+        if (restProps.loading) return (
+            <div className="App text-center pt-5">
+                <span className="h3 ">Loading...</span>
+            </div>
+        )
+        if (restProps.error) return (
+            <div className="App text-center pt-5">
+                <span className="h3 text-danger">{restProps.error} </span>
+            </div>
+        )
         return (
             <div>
                 <div className="container-fluid">
@@ -36,13 +47,6 @@ export default class ProductList extends Component {
                         />
                         <div className="col-sm-10">
                             <div className="row">
-                                {/* {
-                                    restProps.loading && (
-                                        <div className="col-sm-12 text-center pt-5">
-                                            <span className="h3 ">Loading...</span>
-                                        </div>
-                                    )
-                                } */}
                                 {
                                     restProps.products?.length ? restProps.products?.map(product => (
                                         <div className="col-sm-4" key={product.id}>

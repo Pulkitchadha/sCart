@@ -10,7 +10,8 @@ const mapStore = ({ products, filters, user, cart }) => ({
     filters: filters.filters,
     user: user,
     cartProducts: cart.products,
-    loading: products.loading || filters.loading
+    loading: products.loading || filters.loading,
+    error: products.error || filters.error,
 })
 
 const mapDispatch = {

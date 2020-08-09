@@ -15,7 +15,6 @@ class FilterMenu extends React.Component {
     state = { ...initalState }
 
     discount = [
-        // { name: 'Min', value: 'Min' }, { name: 'Max', value: 'Max' },
         { name: '5 %', value: 5 }, { name: '10 %', value: 10 }, { name: '15 %', value: 15 }, { name: '20 %', value: 20 }, { name: '25 %', value: 25 },
         { name: '30 %', value: 30 }, { name: '35 %', value: 35 }, { name: '40 %', value: 40 }, { name: '45 %', value: 45 }, { name: '50 %', value: 50 },
         { name: '55 %', value: 55 }, { name: '60 %', value: 60 }, { name: '65 %', value: 65 }, { name: '70 %', value: 70 }, { name: '75 %', value: 75 },
