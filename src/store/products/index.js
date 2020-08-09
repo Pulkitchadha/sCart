@@ -49,7 +49,7 @@ export default function (state = INITIAL_STATE, { type, payload }) {
                 ...state,
                 loading: false,
                 products: payload,
-                allProducts: payload,
+                // allProducts: payload,
             }
         case SEARCH_FAIL:
             return {

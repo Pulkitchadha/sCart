@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { debounce } from 'lodash';
+import { debounce } from 'lodash';
 
 class Header extends React.Component {
     state = {
@@ -10,7 +10,17 @@ class Header extends React.Component {
     onUpdateFormValue = (e) => {
         const { name, value } = e.target;
         this.setState({ [name]: value });
-        // debounce(() => this.props.onSearch(this.state.text), 500);
+        this.debounceSearch();
+    }
+
+    debounceSearch = debounce(() => {
+        console.log('debounce called')
+        this.props.onSearch(this.state.text)
+    }, 500);
+
+    clearInput = () => {
+        this.setState({ text: ' ' });
+        this.onSearch('');
     }
 
     render() {
@@ -36,7 +46,8 @@ class Header extends React.Component {
                             value={text}
                             onChange={this.onUpdateFormValue}
                         />
-                        <button className="login-btn" onClick={()=> onSearch(text)}>Search</button>
+                        {/* <button className="login-btn" onClick={() => onSearch(text)}>Search</button> */}
+                        {/* {text && <button className="login-btn" onClick={this.clearInput}>Clear</button>} */}
                         <ul className="nav navbar-nav navbar-right">
                             <li>
                                 <a><span className="glyphicon glyphicon-user"></span>{" "} Welcome, {userName} </a>
