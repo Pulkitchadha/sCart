@@ -20,24 +20,32 @@ export default class ProductList extends Component {
     }
 
     render() {
-        const { products, user, filters, cartProducts, searchProducts, addProduct, removeProduct } = this.props;
+        const { searchProducts, addProduct, removeProduct, applyFilter, ...restProps } = this.props;
         return (
             <div>
                 <div className="container-fluid">
                     <div className="row content">
-                        <Header 
-                            userName={user?.username} 
-                            cartItems={cartProducts?.length} 
-                            onSearch={searchProducts} 
+                        <Header
+                            userName={restProps.user?.username}
+                            cartItems={restProps.cartProducts?.length}
+                            onSearch={searchProducts}
                         />
-                        <FilterMenu 
-                            filters={filters}
+                        <FilterMenu
+                            filters={restProps.filters}
+                            applyFilter={applyFilter}
                         />
-                        <div className="col-sm-9">
+                        <div className="col-sm-10">
                             <div className="row">
+                                {/* {
+                                    restProps.loading && (
+                                        <div className="col-sm-12 text-center pt-5">
+                                            <span className="h3 ">Loading...</span>
+                                        </div>
+                                    )
+                                } */}
                                 {
-                                    products.map(product => (
-                                        <div className="col-sm-5" key={product.id}>
+                                    restProps.products?.length ? restProps.products?.map(product => (
+                                        <div className="col-sm-4" key={product.id}>
                                             <ProductCard
                                                 product={product}
                                                 onAdd={addProduct}
@@ -45,7 +53,11 @@ export default class ProductList extends Component {
                                                 isAdded={this.isAddedInCart(product.id)}
                                             />
                                         </div>
-                                    ))
+                                    )) : (
+                                            <div className="col-sm-12 text-center pt-5">
+                                                <span className="h3 ">No product found.</span>
+                                            </div>
+                                        )
                                 }
                             </div>
                         </div>

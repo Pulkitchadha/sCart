@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { getProducts, searchProducts } from 'store/products/actions';
+import { getProducts, searchProducts, applyFilter } from 'store/products/actions';
 import { getFilters } from 'store/filters/actions';
 import { addProduct, removeProduct } from 'store/cart/actions';
 import ProductList from './ProductList';
@@ -10,7 +10,7 @@ const mapStore = ({ products, filters, user, cart }) => ({
     filters: filters.filters,
     user: user,
     cartProducts: cart.products,
-    loading: products.loading
+    loading: products.loading || filters.loading
 })
 
 const mapDispatch = {
@@ -18,7 +18,8 @@ const mapDispatch = {
     getFilters,
     searchProducts,
     addProduct,
-    removeProduct
+    removeProduct,
+    applyFilter
 }
 
 export default connect(mapStore, mapDispatch)(ProductList);
