@@ -1,8 +1,9 @@
 import React from 'react';
 
-export default function Checkbox({ onChange, name, category, isChecked }) {
+function Checkbox({ onChange, name, category, isChecked }) {
+    console.log('checkbox rendered')
     return (
-        <div>
+        <>
             <input
                 type="checkbox"
                 id={name}
@@ -13,6 +14,8 @@ export default function Checkbox({ onChange, name, category, isChecked }) {
             <label htmlFor={name}>
                 {name}
             </label>
-        </div>
+        </>
     )
 }
+
+export default  React.memo(Checkbox);

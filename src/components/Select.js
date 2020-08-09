@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Select({ onChange, items, category, namekey = 'name', valuekey = 'value', defaultOption, selectedValue }) {
+function Select({ onChange, items = [], category, namekey = 'name', valuekey = 'value', defaultOption, selectedValue }) {
     return (
         <div>
             <select name={category} onChange={(e) => onChange(e, category)} >
@@ -10,3 +10,5 @@ export default function Select({ onChange, items, category, namekey = 'name', va
         </div>
     )
 }
+
+export default  React.memo(Select);
