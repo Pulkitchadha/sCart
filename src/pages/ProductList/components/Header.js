@@ -24,7 +24,7 @@ class Header extends React.Component {
     }
 
     render() {
-        const { userName, cartItems, onSearch } = this.props;
+        const { userName, cartItems } = this.props;
         const { text } = this.state;
         return (
             <nav className="navbar navbar-inverse">
@@ -35,7 +35,7 @@ class Header extends React.Component {
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
                         </button>
-                        <a className="navbar-brand">Logo</a>
+                        <a href="/" className="navbar-brand">Logo</a>
                     </div>
                     <div className="collapse navbar-collapse" id="myNavbar">
                         <input
@@ -50,8 +50,8 @@ class Header extends React.Component {
                         {/* {text && <button className="login-btn" onClick={this.clearInput}>Clear</button>} */}
                         <ul className="nav navbar-nav navbar-right">
                             <li>
-                                <a><span className="glyphicon glyphicon-user"></span>{" "} Welcome, {userName} </a>
-                                <a><span className="glyphicon glyphicon-shopping-cart"></span>{" "} {cartItems} {cartItems > 1 ? "items" : "item"} </a>
+                                <a href="/"><span className="glyphicon glyphicon-user"></span>{" "} Welcome, {userName} </a>
+                                <a href="/"><span className="glyphicon glyphicon-shopping-cart"></span>{" "} {cartItems} {cartItems > 1 ? "items" : "item"} </a>
                             </li>
                         </ul>
                     </div>

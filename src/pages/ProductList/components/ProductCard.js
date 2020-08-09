@@ -5,7 +5,7 @@ import { truncateString } from 'services/utility'
 function ProductCard({ product, onAdd, onDelete, isAdded }) {
     return (
         <div className="card">
-            <img className="img-responsive" style={{ "width": "220px", "height": "220px" }} src={product?.image} alt="Card image cap" />
+            <img className="img-responsive" style={{ "width": "220px", "height": "220px" }} src={product?.image} alt="Product" />
             <p className="h5">{truncateString(product?.title, 50)}</p>
             <div className="card-body">
                 <div className="row">
