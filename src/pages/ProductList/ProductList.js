@@ -16,11 +16,11 @@ export default class ProductList extends Component {
     }
 
     isAddedInCart = (id) => {
-        return !!this.props.cartProducts.find(p => p.id == id);
+        return !!this.props.cartProducts.find(p => p.id === id);
     }
 
     render() {
-        const { products, user, cartProducts, searchProducts, addProduct, removeProduct } = this.props;
+        const { products, user, filters, cartProducts, searchProducts, addProduct, removeProduct } = this.props;
         return (
             <div>
                 <div className="container-fluid">
@@ -30,7 +30,9 @@ export default class ProductList extends Component {
                             cartItems={cartProducts?.length} 
                             onSearch={searchProducts} 
                         />
-                        <FilterMenu />
+                        <FilterMenu 
+                            filters={filters}
+                        />
                         <div className="col-sm-9">
                             <div className="row">
                                 {

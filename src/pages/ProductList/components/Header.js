@@ -25,7 +25,7 @@ class Header extends React.Component {
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
                         </button>
-                        <a className="navbar-brand" href="#">Logo</a>
+                        <a className="navbar-brand">Logo</a>
                     </div>
                     <div className="collapse navbar-collapse" id="myNavbar">
                         <input
@@ -39,8 +39,8 @@ class Header extends React.Component {
                         <button className="login-btn" onClick={()=> onSearch(text)}>Search</button>
                         <ul className="nav navbar-nav navbar-right">
                             <li>
-                                <a href="#"><span className="glyphicon glyphicon-user"></span>{" "} Welcome, {userName} </a>
-                                <a href="#"><span className="glyphicon glyphicon-shopping-cart"></span>{" "} {cartItems} {cartItems > 1 ? "items" : "item"} </a>
+                                <a><span className="glyphicon glyphicon-user"></span>{" "} Welcome, {userName} </a>
+                                <a><span className="glyphicon glyphicon-shopping-cart"></span>{" "} {cartItems} {cartItems > 1 ? "items" : "item"} </a>
                             </li>
                         </ul>
                     </div>

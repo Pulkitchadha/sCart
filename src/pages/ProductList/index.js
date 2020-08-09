@@ -1,8 +1,8 @@
+import { connect } from 'react-redux';
+
 import { getProducts, searchProducts } from 'store/products/actions';
 import { getFilters } from 'store/filters/actions';
 import { addProduct, removeProduct } from 'store/cart/actions';
-import { connect } from 'react-redux';
-
 import ProductList from './ProductList';
 
 const mapStore = ({ products, filters, user, cart }) => ({

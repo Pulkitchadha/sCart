@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function ProductCard(props) {
-    const { product, onAdd, onDelete, isAdded } = props;
+function ProductCard({ product, onAdd, onDelete, isAdded }) {
     return (
         <div className="card">
             <img className="img-responsive" style={{ "width": "220px", "height": "220px" }} src={product?.image} alt="Card image cap" />
