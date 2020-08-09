@@ -5,7 +5,10 @@ import {
     GET_PRODUCTS_FAIL,
     SEARCH_BEGIN,
     SEARCH_SUCCESS,
-    SEARCH_FAIL
+    SEARCH_FAIL,
+    APPLY_FILTER_BEGIN,
+    APPLY_FILTER_SUCCESS,
+    // APPLY_FILTER_FAIL,
 } from "./types";
 
 export const getProducts = () => async (dispatch) => {
@@ -30,4 +33,34 @@ export const searchProducts = (text) => async (dispatch) => {
     } catch (err) {
         dispatch({ type: SEARCH_FAIL, payload: err.message });
     }
+}
+
+export const applyFilter = (filters) => async (dispatch, getState) => {
+    dispatch({ type: APPLY_FILTER_BEGIN });
+
+    const { color = [], brand = [], price = {}, discount = {} } = filters;
+    const { products: { allProducts } } = getState();
+
+    let filteredProducts = allProducts;
+
+    filteredProducts = filteredProducts.filter(p => {
+        let addToList = true;
+
+        if (color?.length) {
+            addToList = color.includes(p?.colour?.title?.toLowerCase());
+        }
+        if (brand?.length) {
+            addToList = brand.includes(p?.brand?.toLowerCase());
+        }
+        // if (Object.keys(price).length) {
+        //     addToList = p?.price?.final_price >= price?.min && p?.price?.final_price <= price?.max;
+        // }
+        // if (Object.keys(discount).length) {
+        //     addToList = p?.discount >= discount?.min && p?.discount <= discount?.max;
+        // }
+        return addToList;
+    });
+    console.log({ allProducts, filters, filteredProducts });
+
+    dispatch({ type: APPLY_FILTER_SUCCESS, payload: filteredProducts })
 }
