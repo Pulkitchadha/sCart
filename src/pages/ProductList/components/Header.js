@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { debounce } from 'lodash';
 
-class Header extends React.Component {
+class Header extends React.PureComponent {
     state = {
         text: '',
     }
@@ -15,7 +15,7 @@ class Header extends React.Component {
 
     debounceSearch = debounce(() => {
         console.log('debounce called')
-        this.props.onSearch(this.state.text)
+        this.props.onSearch(this.state.text?.trim());
     }, 500);
 
     clearInput = () => {
