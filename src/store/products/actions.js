@@ -56,12 +56,20 @@ export const applyFilter = (filters) => async (dispatch, getState) => {
             isBrandValid = brand.includes(p?.brand?.toLowerCase());
         }
         if (price?.min || price?.max) {
-            if (price?.min) isPriceValid = p?.price?.final_price >= price?.min;
-            if (price?.max) isPriceValid = p?.price?.final_price <= price?.max;
+            let minValid = true;
+            let maxValid = true;
+
+            if (price?.min) minValid = p?.price?.final_price >= price?.min;
+            if (price?.max) maxValid = p?.price?.final_price <= price?.max;
+            isPriceValid = minValid && maxValid;
         }
         if (discount?.min || discount?.max) {
-            if (discount?.min) isDiscount = p?.discount >= discount?.min;
-            if (discount?.max) isDiscount = p?.discount <= discount?.max;
+            let minValid = true;
+            let maxValid = true;
+
+            if (discount?.min) minValid = p?.discount >= discount?.min;
+            if (discount?.max) maxValid = p?.discount <= discount?.max;
+            isDiscount = minValid && maxValid;
         }
         return isColorValid && isBrandValid && isPriceValid && isDiscount;
     });

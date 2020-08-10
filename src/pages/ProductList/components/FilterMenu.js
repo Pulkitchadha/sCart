@@ -59,7 +59,12 @@ class FilterMenu extends React.Component {
     }
 
     clearAllFilter = () => {
-        this.setState({ ...initalState }, () => this.props.applyFilter({ ...initalState }))
+        this.setState({ ...initalState }, () =>
+            this.props.applyFilter({
+                ...initalState,
+                price: { ...initalState.price },
+                discount: { ...initalState.discount }
+            }))
     }
 
     getFilter = (type = 'COLOUR') => {
