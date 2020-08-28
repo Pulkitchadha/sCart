@@ -20,7 +20,7 @@ class Header extends React.PureComponent {
 
     clearInput = () => {
         this.setState({ text: ' ' });
-        this.onSearch('');
+        this.props.onSearch('');
     }
 
     render() {

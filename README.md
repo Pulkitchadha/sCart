@@ -28,7 +28,12 @@ npm install
 npm run start
 ```
 
-### This starts the Next.js app’s "development server"  on port 5000
+### This starts the "development server"  on port 5000
 
 4) Open http://localhost:5000 from your browser.
 
+### Login credentials
+
+| Username | Password |
+| ------------------- |
+| amigo    | delta    | 

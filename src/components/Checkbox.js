@@ -2,7 +2,6 @@ import React from 'react';
 import { truncateString } from 'services/utility'
 
 function Checkbox({ onChange, name, category, isChecked }) {
-    console.log('checkbox rendered')
     return (
         <>
             <input

@@ -50,14 +50,6 @@ class FilterMenu extends React.Component {
         }, () => this.props.applyFilter(this.state));
     }
 
-    handleCloseTag = (category, name) => {
-        this.setState(prevState => {
-            return {
-                [category]: prevState[category].filter(n => n !== name)
-            }
-        }, () => this.props.applyFilter(this.state));
-    }
-
     clearAllFilter = () => {
         this.setState({ ...initalState }, () =>
             this.props.applyFilter({
@@ -102,7 +94,7 @@ class FilterMenu extends React.Component {
                             </div>
                             <hr />
                             <div>
-                                <div className={"mb-2 sub_title"}>Brand</div>
+                                <div className="mb-2 sub_title">Brand</div>
                                 <div className="row divWithScroll">
                                     {this.getFilter('BRAND')?.map(f =>
                                         <div className="col-sm-6" key={`${f.value}-${f.title}`}>
@@ -118,7 +110,7 @@ class FilterMenu extends React.Component {
                             </div>
                             <hr />
                             <div>
-                                <div className={"sub_title"}>Price</div>
+                                <div className="sub_title">Price</div>
                                 <div className="row">
                                     <div className="col-sm-6">
                                         <Select
