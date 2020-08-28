@@ -70,7 +70,7 @@ class FilterMenu extends React.Component {
                     <div >
                         <div >
                             <span className="text-center h4">Filters</span>
-                            <div className={"pull-right cursor-pointer"} onClick={this.clearAllFilter}>
+                            <div className="pull-right cursor-pointer" onClick={this.clearAllFilter}>
                                 <span className="glyphicon glyphicon-repeat"></span>{" "}
                                 Reset filter
                             </div>

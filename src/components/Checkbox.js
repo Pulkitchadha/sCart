@@ -12,7 +12,7 @@ function Checkbox({ onChange, name, category, isChecked }) {
                 checked={isChecked}
             />
             <label htmlFor={name}>
-                {truncateString(name, 8)}
+                {truncateString(name, 6)}
             </label>
         </>
     )

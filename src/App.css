@@ -95,3 +95,14 @@ label {
   left: -1px;
   padding: 10px 7px 5px;
 }
+
+.product-card{
+  height: 300px;
+  width: 350px;
+  object-fit: scale-down;
+  margin: 0 auto;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}

@@ -5,7 +5,7 @@ import { truncateString } from 'services/utility'
 function ProductCard({ product, onAdd, onDelete, isAdded }) {
     return (
         <div className="card">
-            <img className="img-responsive" style={{ "width": "220px", "height": "220px" }} src={product?.image} alt="Product" />
+            <img className="img-responsive product-card" src={product?.image} alt="Product" />
             <p className="h5">{truncateString(product?.title, 50)}</p>
             <div className="card-body">
                 <div className="row">
@@ -18,11 +18,11 @@ function ProductCard({ product, onAdd, onDelete, isAdded }) {
                     </div>
                     <div className="col-sm-4">
                         <ul className="list-group list-group-flush">
-                            <li className="list-group-item">{product?.colour?.title}</li>
+                            <li className="list-group-item text-center">{product?.colour?.title}</li>
                             {!isAdded ? (
-                                <li className="list-group-item text-success" onClick={() => onAdd(product)}>Add (+)</li>
+                                <li className="list-group-item text-success cursor-pointer text-center" onClick={() => onAdd(product)}><button className="btn btn-primary">Add</button></li>
                             ) : (
-                                <li className="list-group-item text-danger" onClick={() => onDelete(product.id)}>Remove (-)</li>)
+                                <li className="list-group-item text-danger cursor-pointer text-center" onClick={() => onDelete(product.id)}><button className="btn btn-danger">Remove</button></li>)
                             }
                         </ul>
                     </div>
