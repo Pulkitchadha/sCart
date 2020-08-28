@@ -51,12 +51,11 @@ class FilterMenu extends React.Component {
     }
 
     clearAllFilter = () => {
-        this.setState({ ...initalState }, () =>
-            this.props.applyFilter({
-                ...initalState,
-                price: { ...initalState.price },
-                discount: { ...initalState.discount }
-            }))
+        this.setState({
+            ...initalState,
+            price: { ...initalState.price },
+            discount: { ...initalState.discount }
+        }, () => this.props.applyFilter({ ...initalState }));
     }
 
     getFilter = (type = 'COLOUR') => {
@@ -112,7 +111,7 @@ class FilterMenu extends React.Component {
                             <div>
                                 <div className="sub_title">Price</div>
                                 <div className="row">
-                                    <div className="col-sm-6">
+                                    <div className="col-sm-5">
                                         <Select
                                             items={this.getFilter('PRICE')}
                                             onChange={this.handleChange}
@@ -123,7 +122,8 @@ class FilterMenu extends React.Component {
                                             selectedValue={this.state.price?.min}
                                         />
                                     </div>
-                                    <div className="col-sm-6">
+                                    <div className="col-sm-2">To</div>
+                                    <div className="col-sm-5">
                                         <Select
                                             items={this.getFilter('PRICE')}
                                             onChange={this.handleChange}
@@ -138,9 +138,9 @@ class FilterMenu extends React.Component {
                             </div>
                             <hr />
                             <div>
-                                <div className={"sub_title"}>Discount</div>
+                                <div className="sub_title">Discount</div>
                                 <div className="row">
-                                    <div className="col-sm-6">
+                                    <div className="col-sm-5">
                                         <Select
                                             items={this.discount}
                                             onChange={this.handleChange}
@@ -150,7 +150,8 @@ class FilterMenu extends React.Component {
                                             selectedValue={this.state.discount?.min}
                                         />
                                     </div>
-                                    <div className="col-sm-6">
+                                    <div className="col-sm-2">To</div>
+                                    <div className="col-sm-5">
                                         <Select
                                             items={this.discount}
                                             onChange={this.handleChange}

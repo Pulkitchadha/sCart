@@ -35,7 +35,7 @@ class Header extends React.PureComponent {
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
                         </button>
-                        <a href="/" className="navbar-brand">Logo</a>
+                        <a className="navbar-brand cursor-pointer">Logo</a>
                     </div>
                     <div className="collapse navbar-collapse" id="myNavbar">
                         <input
@@ -50,8 +50,8 @@ class Header extends React.PureComponent {
                         {/* {text && <button className="login-btn" onClick={this.clearInput}>Clear</button>} */}
                         <ul className="nav navbar-nav navbar-right">
                             <li>
-                                <a href="/"><span className="glyphicon glyphicon-user"></span>{" "} Welcome, {userName} </a>
-                                <a href="/"><span className="glyphicon glyphicon-shopping-cart"></span>{" "} {cartItems} {cartItems > 1 ? "items" : "item"} </a>
+                                <a className="cursor-pointer"><span className="glyphicon glyphicon-user"></span>{" "} Welcome, {userName} </a>
+                                <a className="cursor-pointer"><span className="glyphicon glyphicon-shopping-cart"></span>{" "} {cartItems} {cartItems > 1 ? "items" : "item"} </a>
                             </li>
                         </ul>
                     </div>
