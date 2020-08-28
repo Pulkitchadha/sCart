@@ -30,11 +30,11 @@ class Header extends React.PureComponent {
             <nav className="navbar navbar-inverse">
                 <div className="container-fluid">
                     <div className="navbar-header">
-                        <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        {/* <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
-                        </button>
+                        </button> */}
                         <a className="navbar-brand cursor-pointer">Logo</a>
                     </div>
                     <div className="collapse navbar-collapse" id="myNavbar">

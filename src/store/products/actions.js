@@ -38,6 +38,7 @@ export const searchProducts = (text) => async (dispatch) => {
 export const applyFilter = (filters) => async (dispatch, getState) => {
     dispatch({ type: APPLY_FILTER_BEGIN });
 
+    console.log({ filters });
     const { color = [], brand = [], price = {}, discount = {} } = filters;
     const { products: { allProducts } } = getState();
 
