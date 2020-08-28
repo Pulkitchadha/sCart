@@ -11,7 +11,7 @@ function Checkbox({ onChange, name, category, isChecked }) {
                 onChange={(e) => onChange(e, category)}
                 checked={isChecked}
             />
-            <label htmlFor={name}>
+            <label htmlFor={name} data-toggle="tooltip" data-placement="top" title={name}>
                 {truncateString(name, 6)}
             </label>
         </>
